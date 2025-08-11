@@ -22,6 +22,11 @@ public class Rationalnumber {
 
         }
       // Constructor Closed
+      public Rationalnumber(int numerator , int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+      }
+      // Made a parameterized Constructor to store the values properly.
     // Now for get and set function..
     public int getNumerator() {
         return numerator;
@@ -49,9 +54,7 @@ public Rationalnumber add(Rationalnumber r ) {
     // CommonDen = 3,6 = 6
     int num1 = (this.numerator *(CommonDen/ this.denominator));
     int num2 = (r.numerator *(CommonDen/r.denominator));
-    Rationalnumber Rnum = new Rationalnumber();
-    Rnum.setNumerator(num1 + num2);
-    Rnum.setDenominator(CommonDen);
+    Rationalnumber Rnum = new Rationalnumber(num1 + num2 , CommonDen);
     // Rnum to store the resulted values 
     return Rnum;
 
@@ -64,9 +67,7 @@ public Rationalnumber subtract(Rationalnumber r) {
     // int CommonDen = 3,6 = 6
     int num1 = (this.numerator *(CommonDen/this.denominator));
     int num2 = (r.numerator * (CommonDen/r.denominator));
-    Rationalnumber Rnum = new Rationalnumber();
-    Rnum.setNumerator(num1 - num2);
-    Rnum.setDenominator(CommonDen);
+    Rationalnumber Rnum = new Rationalnumber(num1 - num2, CommonDen);
     return Rnum;
 }
 
@@ -85,8 +86,9 @@ private static int GCD(int a, int b) {
 public int LCM(int a, int b) {
     return ( a * b) / GCD (a , b);
 }
-public void display() {
-    System.out.println(numerator + "/" + denominator );
+@Override
+public String toString() {
+    return numerator + "/" + denominator;
 }
 }
 
